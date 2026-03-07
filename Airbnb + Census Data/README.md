@@ -80,13 +80,13 @@ The following snapshots were created to track slowly changing dimensions of the 
 
 <img width="312" height="400" alt="image" src="https://github.com/user-attachments/assets/63b96b66-1140-46fd-86a9-d2397315850e" />
 
-## Step 4: Business Analysis
+## Step 4: Create Analysis View
 ### Data Mart:
 <img width="300" height="160" alt="image" src="https://github.com/user-attachments/assets/1e16177a-c751-4b91-88aa-3f4dfbc46150" />
 
 The mart folder contains views designed to address key business questions. The following outlines the purpose and structure of each view:
 
-1. [dm_listing_neighbourhood](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/models/gold/mart/dm_listing_neighbourhood.sql): This view provides monthly insights by listing_neighbourhood and month/year, including the following metrics:
+#### 1. [dm_listing_neighbourhood](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/models/gold/mart/dm_listing_neighbourhood.sql): This view provides monthly insights by listing_neighbourhood and month/year, including the following metrics:
 - Active listings rate
 - Minimum, maximum, median, and average price of active listings
 - Number of distinct hosts
@@ -99,11 +99,47 @@ The mart folder contains views designed to address key business questions. The f
 
 <img width="1155" height="621" alt="image" src="https://github.com/user-attachments/assets/1c338ee8-b47e-4717-a279-f00c22b54729" />
 
+Full View: [dm_listing_neighborhood](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/views/dm_listing_neighbourhood_202510270016.csv)
+
+#### 2. [dm_property_type](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/models/gold/mart/dm_property_type.sql): This view provides monthly insights by property type, room type, and accommodates, including the following metrics:
+- Active listing rate
+- Minimum, maximum, median, and average price of active listings
+- Number of distinct hosts
+- Superhost rate
+- Average review score for active listings
+- Total stays for active listings
+- Average estimated revenue per active listing
+- Month-over-month percentage change in active listings
+- Month-over-month percentage change in inactive listings
+  
+The results are ordered by property type, room type, accommodates, and month/year.
+
+<img width="1168" height="628" alt="image" src="https://github.com/user-attachments/assets/96b36de9-e8aa-4511-ba7c-5edce8622010" />
+
+Full View: [dm_property_type](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/views/dm_property_type_202510270016.csv)
+
+#### 3. [dm_host_neighbourhood](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/models/gold/mart/dm_host_neighbourhood.sql): This view provides monthly insights by host neighbourhood (LGA), including:
+- Number of distinct hosts
+- Total estimated revenue for active listings
+- Estimated revenue per host
+
+The results are ordered by host neighbourhood and month/year.
+It aggregates listing data by host, calculates revenue only for active listings, and ensures deduplication of listings per host per month.
+
+<img width="1176" height="618" alt="image" src="https://github.com/user-attachments/assets/aa2fc1f4-75c5-4194-a19e-d9beb2273129" />
+
+Full View: [dm_host_neighbourhood](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/views/dm_host_neighbourhood_202510270014.csv)
+
+## Step 5: Load the remaining Airbnb Dataset (Due to free version limitation)
+
+1. Upload each month’s data to the bucket, then run the Airflow DAG to load one month of Airbnb data at a time.
+2. Wait for the data loading to complete — verify the updates in DBeaver to confirm successful loading.
+3. Manually trigger the corresponding dbt job to process the newly loaded data.
+4. Repeat this process for each subsequent month in chronological order.
+5. Ensure that all data is processed sequentially to maintain correct order and data integrity throughout the pipeline.
 
 
+## Step 6: Ad-Hoc Analysis
 
-
-
-
-
+The full SQL queries to this section can be found here: 
 
