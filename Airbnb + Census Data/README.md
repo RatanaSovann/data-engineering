@@ -32,4 +32,6 @@ The following technologies are used to build this project:
 
 The file follows these stages:
 - Step 1: Upload one month of listing data (following chronological order), census data and LGA mapping into Airflow storage bucket.
-- Step 2: Using DBeaver create a Bronze schema and establishh connection to Airflow via [DAG file](
+- Step 2: Using DBeaver create a Bronze schema and establishh connection to Airflow via [DAG file](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/dbt_project.yml)
+- Step 3: Design Medallion Architecture framework with dbt
+- Step 4: Create [snapshots]( to 
