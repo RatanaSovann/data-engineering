@@ -41,7 +41,27 @@ The file follows these stages:
 
 ## Step 1: Create staging layer (Bronze Schema) for Data
 
-In this step, I create tables for the three data files Listing, Census and LGA Mapping in DBeaver: [Bronze_Schema.sql](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/Bronze_Schema.sql)
+In this step, I create tables for the three data files Listing, Census and LGA Mapping in DBeaver ensuring correct dtype for each field: [Bronze_Schema.sql](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/Bronze_Schema.sql)
+
+<img width="425" height="448" alt="image" src="https://github.com/user-attachments/assets/de72313a-9f74-4156-bd5f-683ba2fdd6ef" />
+
+## Step 2: Build an Airflow DAG
+An Airflow DAG with no set schedule interval reads the data from the storage bucket and loads it into the raw tables within the bronze schema on Postgres. [DAG.py](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/DAG.py)
+
+<img width="425" height="448" alt="image" src="https://github.com/user-attachments/assets/d6ce2607-d750-4386-bf33-9b553d303cd0" />
+
+## Step 3: Design Data Warehouse with DBT (Bronze, Silver, Gold layer)
+In this section, the goal is to design a data warehouse architecture in PostgreSQL following the Medallion Architecture framework, which includes Bronze, Silver, and Gold layers. The warehouse will also incorporate dimension and fact tables.
+
+<img width="312" height="226" alt="image" src="https://github.com/user-attachments/assets/c0a9e0bf-af44-44c9-95ec-4e784de35f3b" />
+
+Create Silver Layer which focuses on three main steps:
+- Data cleaning and transformation: This step rectifies inaccuracies, inconsistencies, and missing values to ensure reliable data for analysis.
+- Create intermediate tables for Gold Layer: create additional tables s_dim_host, s_dim_listing, s_dim_host_neighbourhood, and s_dim_listing_neighbourhood are created to represent the dimensions of the data. This was designed for later joins in Golder layer.
+- Snapshot creation: Cleaned data is captured at specific points in time, enabling tracking of changes and historical comparisons (SCD2)
+<img width="312" height="226" alt="image" src="https://github.com/user-attachments/assets/7b2beebd-9dab-4f87-a24a-82eebc682ae8" />
+
+- [sources.yml]() is created for snapshot to reference which layer to track (usually lives in silver) 
 
 
 
