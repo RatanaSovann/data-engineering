@@ -1,0 +1,11 @@
+pickup_borough,dropoff_borough,total_revenue,revenue_share_percent
+Manhattan,Manhattan,635214335.0797734,61.17
+Queens,Manhattan,171076646.30007085,16.47
+Manhattan,Queens,68880265.68000293,6.63
+Queens,Brooklyn,37667153.70999964,3.63
+Manhattan,Brooklyn,31611134.599999756,3.04
+Queens,Queens,31071028.13999942,2.99
+Queens,Unknown,13865156.249999901,1.34
+Manhattan,EWR,11911869.559999956,1.15
+Manhattan,Unknown,6633498.579999994,0.64
+Queens,Bronx,5762322.729999987,0.55

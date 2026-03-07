@@ -1,0 +1,7 @@
+trip_duration_category,avg_speed_kmh,avg_distance_per_dollar
+5-10 mins,17.22,0.21
+Under 5 mins,19.81,0.16
+20-30 mins,21.36,0.3
+30-60 mins,25.81,0.34
+10-20 mins,17.91,0.26
+60+ min,22.64,0.39
