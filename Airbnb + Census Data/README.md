@@ -81,14 +81,12 @@ The following snapshots were created to track slowly changing dimensions of the 
 <img width="312" height="400" alt="image" src="https://github.com/user-attachments/assets/63b96b66-1140-46fd-86a9-d2397315850e" />
 
 ## Step 4: Business Analysis
-###Data Mart:
-
-
+### Data Mart:
+<img width="300" height="160" alt="image" src="https://github.com/user-attachments/assets/1e16177a-c751-4b91-88aa-3f4dfbc46150" />
 
 The mart folder contains views designed to address key business questions. The following outlines the purpose and structure of each view:
 
-1. [dm_listing_neighbourhood](): This view provides monthly insights by listing_neighbourhood and month/year, including the following metrics:
-
+1. [dm_listing_neighbourhood](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/models/gold/mart/dm_listing_neighbourhood.sql): This view provides monthly insights by listing_neighbourhood and month/year, including the following metrics:
 - Active listings rate
 - Minimum, maximum, median, and average price of active listings
 - Number of distinct hosts
@@ -98,6 +96,8 @@ The mart folder contains views designed to address key business questions. The f
 - Percentage change in inactive listings
 - Total number of stays
 - Average estimated revenue per active listing
+
+<img width="1155" height="621" alt="image" src="https://github.com/user-attachments/assets/1c338ee8-b47e-4717-a279-f00c22b54729" />
 
 
 
