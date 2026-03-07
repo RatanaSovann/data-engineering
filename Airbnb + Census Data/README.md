@@ -34,4 +34,14 @@ The file follows these stages:
 - Step 1: Upload one month of listing data (following chronological order), census data and LGA mapping into Airflow storage bucket.
 - Step 2: Using DBeaver create a Bronze schema and establishh connection to Airflow via [DAG file](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/dbt_project.yml)
 - Step 3: Design Medallion Architecture framework with dbt
-- Step 4: Create [snapshots]( to 
+- Step 4: Create [snapshots](https://github.com/RatanaSovann/data-engineering/tree/main/Airbnb%20%2B%20Census%20Data/snapshots) to handle Slow Changing Dimension (SCD2)
+- Step 5: Create datamart and star in gold layer for ad-hoc analysis
+- Step 6: Trigger Airflow to update the remaining 11 months of Data manually checking view to ensure robustness of the pipeline.
+- Step 7: Perform Ad-Hoc Analysis to answer business questions.
+
+## Step 1: Create staging layer (Bronze Schema) for Data
+
+In this step, I create tables for the three data files Listing, Census and LGA Mapping in DBeaver: [Bronze_Schema.sql]()
+
+
+
