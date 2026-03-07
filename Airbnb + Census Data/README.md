@@ -41,7 +41,7 @@ The file follows these stages:
 
 ## Step 1: Create staging layer (Bronze Schema) for Data
 
-In this step, I create tables for the three data files Listing, Census and LGA Mapping in DBeaver: [Bronze_Schema.sql]()
+In this step, I create tables for the three data files Listing, Census and LGA Mapping in DBeaver: [Bronze_Schema.sql](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/Bronze_Schema.sql)
 
 
 
