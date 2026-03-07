@@ -53,15 +53,38 @@ An Airflow DAG with no set schedule interval reads the data from the storage buc
 ## Step 3: Design Data Warehouse with DBT (Bronze, Silver, Gold layer)
 In this section, the goal is to design a data warehouse architecture in PostgreSQL following the Medallion Architecture framework, which includes Bronze, Silver, and Gold layers. The warehouse will also incorporate dimension and fact tables.
 
+
 <img width="312" height="226" alt="image" src="https://github.com/user-attachments/assets/c0a9e0bf-af44-44c9-95ec-4e784de35f3b" />
 
-Create Silver Layer which focuses on three main steps:
+
+### Create Silver Layer which focuses on three main steps:
 - Data cleaning and transformation: This step rectifies inaccuracies, inconsistencies, and missing values to ensure reliable data for analysis.
 - Create intermediate tables for Gold Layer: create additional tables s_dim_host, s_dim_listing, s_dim_host_neighbourhood, and s_dim_listing_neighbourhood are created to represent the dimensions of the data. This was designed for later joins in Golder layer.
 - Snapshot creation: Cleaned data is captured at specific points in time, enabling tracking of changes and historical comparisons (SCD2)
+
+  
 <img width="312" height="226" alt="image" src="https://github.com/user-attachments/assets/7b2beebd-9dab-4f87-a24a-82eebc682ae8" />
 
-- [sources.yml]() is created for snapshot to reference which layer to track (usually lives in silver) 
+
+[sources.yml](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/models/sources.yml) is created for snapshot to reference which layer to track
+
+The following snapshots were created to track slowly changing dimensions of the data overtime:
+
+<img width="312" height="226" alt="image" src="https://github.com/user-attachments/assets/6aa58d83-df2a-4a0a-b8f2-795cb10d4571" />
+
+<img width="648" height="210" alt="image" src="https://github.com/user-attachments/assets/b357ef4d-a3e9-4beb-8306-4b1d5118ac57" />
+
+### Create Gold Layer consisting of two main components:
+- Star Schema: Implements a star schema design with dimension and fact tables. The fact tables include only IDs and key metrics (e.g., price).
+- Datamart: Contains materialized views derived from fact and dimension tables to address critical business questions. It also incorporates Slowly Changing Dimensions Type 2 (SCD2) for historical tracking.
+
+<img width="312" height="400" alt="image" src="https://github.com/user-attachments/assets/63b96b66-1140-46fd-86a9-d2397315850e" />
+
+
+
+
+
+
 
 
 
