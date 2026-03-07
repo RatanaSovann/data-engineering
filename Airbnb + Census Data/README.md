@@ -141,5 +141,38 @@ Full View: [dm_host_neighbourhood](https://github.com/RatanaSovann/data-engineer
 
 ## Step 6: Ad-Hoc Analysis
 
-The full SQL queries to this section can be found here: 
+The full SQL queries to this section can be found here: [Ad-Hoc_Analysis.sql](https://github.com/RatanaSovann/data-engineering/blob/main/Airbnb%20%2B%20Census%20Data/Ad-Hoc_Analysis.sql)
+
+#### Question 1:
+
+The demographic variations—such as age distribution and household size—between the top three and bottom three LGAs, ranked by estimated revenue per active listing over the past 12 months, show that the median age in the top three LGAs is approximately 40, while in the bottom three it is around 35. Additional differences, including household incomes, are summarized in the table below.
+
+<img width="1000" height="400" alt="image" src="https://github.com/user-attachments/assets/5f08e0e7-eda6-4a2e-8e77-9ac128f54e93" />
+
+#### Question 2:
+
+The table below illustrates the relationship between the median age of a neighbourhood, as reported in Census data, and the revenue generated per active listing within that area. A clear trend emerges from the data, showing that neighbourhoods with higher median ages generally tend to generate greater revenue per listing. For example, LGAs 14100, 15990, and 15350 have median ages of 40 or above, and the revenue associated with listings in these areas is consistently on the higher end compared to neighbourhoods with younger populations. This pattern suggests that age demographics may play a role in influencing the earning potential of listings, potentially reflecting factors such as higher disposable income, more stable household structures, or established communities in older neighbourhoods.
+
+<img width="600" height="700" alt="image" src="https://github.com/user-attachments/assets/4fd1e213-8881-454c-ae31-8c39451c2b37" />
+
+#### Question 3:
+
+The table below highlights the most effective type of listing—considering property type, room type, and number of guests accommodated—for the top five “listing_neighbourhoods” in terms of estimated revenue per active listing. These combinations are associated with the highest number of stays, indicating the characteristics that are most successful in attracting guests within the top-performing neighbourhoods.
+
+<img width="920" height="224" alt="image" src="https://github.com/user-attachments/assets/d13d712b-468a-47d6-83a5-1ba53e9e9240" />
+
+#### Question 4:
+
+For hosts owning multiple listings, the table below displays how many have their properties clustered within a single LGA versus spread across multiple LGAs.
+
+<img width="600" height="140" alt="image" src="https://github.com/user-attachments/assets/d27ad0a6-b32a-432c-a548-0b3e5a2d0bfa" />
+
+Among the hosts owning multiple properties roughly only one third has their property distributed. This makes logical sense as it is harder to manage properties further away from each other.
+
+#### Question 5:
+
+The table below shows whether hosts with a single Airbnb listing have earned enough estimated revenue over the past 12 months to cover the annualised median mortgage repayment in their LGA, and highlights the LGA with the highest share of hosts able to do so.
+
+<img width="880" height="608" alt="image" src="https://github.com/user-attachments/assets/f55badb4-ee7b-4e19-a037-62518fbcde24" />
+
 
