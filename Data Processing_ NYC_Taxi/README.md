@@ -185,5 +185,50 @@ The average cost of a bucket of trips aggregated by a given taxi type that share
 
 <img width="1189" height="256" alt="image" src="https://github.com/user-attachments/assets/950735a6-a553-4545-8df7-46c0f599a302" />
 
-Full notebook: 
+Full notebook: [ML_modelling.ipynb](https://github.com/RatanaSovann/data-engineering/blob/main/Data%20Processing_%20NYC_Taxi/ML_Modelling.ipynb)
+
+#### Linear Regression:
+
+Initially, each feature is iteratively added to the model and validated on only one month of data to assess model improvement. The final features used are shown below:
+
+Features selection:
+
+- Numerical Features: trip_distance, trip_duration, year, month, and hour. Among these, trip distance and duration are the primary factors influencing the total fare. Meanwhile, year, month, and hour are crucial for capturing patterns in passenger demand.
+- Categorical Features: day_of_week and hour_of_day. These features are One Hot Encoded using Spark.
+  
+A function is defined to help encode the categorical variables:
+
+<img width="940" height="499" alt="image" src="https://github.com/user-attachments/assets/7210932b-a154-4013-a2ed-b6a758f5baa9" />
+
+#### Elastic Net:
+
+Elastic Net is useful when predictors are highly correlated or when you want a mix of feature selection and coefficient shrinkage.
+
+Model parameter tuning:
+
+<img width="706" height="195" alt="image" src="https://github.com/user-attachments/assets/0e89fee8-181c-418f-b273-81bcac495ebd" />
+
+Noted: Despite increasing regularization overfitting did not improve much, suggesting some issues with the data split or quality of features.
+
+#### XGBoost
+
+XGBoost is a gradient boosting algorithm that builds an ensemble of decision trees sequentially. The parameters below are tuned with the focus on trying to reduce overfitting.
+
+<img width="798" height="676" alt="image" src="https://github.com/user-attachments/assets/b93e8594-79ed-4999-828f-319561567704" />
+
+#### Modelling Results
+
+<img width="539" height="210" alt="image" src="https://github.com/user-attachments/assets/26fb62b0-70ae-4267-b7f7-c9048863affe" />
+
+#### Key Takeaways:
+
+- XGBoost achieved the best overall model performance with the lowest training, validation, and test RMSE.
+- It showed stronger generalisation than Linear Regression and Elastic Net, with a smaller train–test error gap.
+- While training took longer on 1% of the data, the improvement in accuracy and robustness justified the extra time.
+- XGBoost final test RMSE of 7.59 was 37% better than the baseline, meeting the project target.
+
+
+
+
+
 
