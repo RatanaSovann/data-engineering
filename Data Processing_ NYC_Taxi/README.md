@@ -191,7 +191,7 @@ Full notebook: [ML_modelling.ipynb](https://github.com/RatanaSovann/data-enginee
 
 Initially, each feature is iteratively added to the model and validated on only one month of data to assess model improvement. The final features used are shown below:
 
-Features selection:
+#### Features selection:
 
 - Numerical Features: trip_distance, trip_duration, year, month, and hour. Among these, trip distance and duration are the primary factors influencing the total fare. Meanwhile, year, month, and hour are crucial for capturing patterns in passenger demand.
 - Categorical Features: day_of_week and hour_of_day. These features are One Hot Encoded using Spark.
