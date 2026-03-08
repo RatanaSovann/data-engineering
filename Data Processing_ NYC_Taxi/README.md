@@ -165,3 +165,25 @@ The highest estimated income per hour is the under 5 mins trips at $122.75/hour.
 - Even though the fare per trip is low (7.32 AUD), drivers can complete many trips per hour.
 
 It seems like the best strategy is to focus on short trips under 10 minutes to maximise income per hour, whenever those trips are available.
+
+## Part 3: Machine Learning Modelling
+
+This section details the process and approach of building two machine learning models for predicting the total fare of a trip. The metric used to evaluate the models is Root Mean Squared Error (RMSE).
+
+Due to the resource constraints of Data Brick free edition, the full dataset is not used. To reduce computations, all the preprocessing required for modelling is done using Spark Data Frame operations (select, withColumn, write). These run distributed across the serverless cluster’s executors, efficiently handling the 900M rows without overloading the driver.
+
+#### Data Splitting:
+
+Data are split based on date and further take 1% sample and stratified by year–month to preserve the natural distribution of rides across months. A random fraction within each month is used to separate training and validation sets, ensuring that both sets contain data from all months while maintaining representativeness. The split is as follows:
+- Testing Set: From 2024-10-01 onward (held out for final evaluation).
+- Validation Set: A stratified random 30% sample from months before 2024-10-01.
+- Training Set: The remaining stratified random 70% of records from months before 2024-10-01.
+
+#### Baseline Model:
+
+The average cost of a bucket of trips aggregated by a given taxi type that shares the same pickup borough, dropoff borough, month, day of the week and hour of the day is used as a proxy for the total amount. This figure is used as the baseline model to calculate the baseline RMSE.
+
+<img width="1189" height="256" alt="image" src="https://github.com/user-attachments/assets/950735a6-a553-4545-8df7-46c0f599a302" />
+
+Full notebook: 
+
