@@ -19,7 +19,7 @@ The dataset can be found in the following links:
 - The tables G01 (“Selected Person Characteristics by Sex”) and G02 (“Selected Medians and Averages”) of the General Community Profile Pack from the 2016 census at the LGA level: https://drive.google.com/file/d/1AbfLWOCgPfAY8bBRX1blZdL0-dO2joXT/view?usp=sharing
 - A dataset to help you join both datasets based on LGAs code and a mapping between LGAs and Suburbs: https://drive.google.com/file/d/1y962EkNhG2nBGiMsV8sYN2BeFsIy6zO5/view?usp=sharing/view?usp=sharing
 
-- ## Technologies
+## Technologies
 
 The following technologies are used to build this project:
 - Language: Python, SQL
